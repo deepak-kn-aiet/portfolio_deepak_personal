@@ -26,12 +26,6 @@ const RealismButton = ({ text, className, children, variant = 'default', ...prop
         isNav ? "w-[40%] h-[40%] shadow-[0_0_10px_#ffffff15] group-hover:shadow-[0_0_20px_#ffffff25]" : "w-[65%] h-[60%] shadow-[0_0_20px_#ffffff38] group-hover:shadow-[0_0_40px_#ffffff60]"
       )} /> 
  
-      {/* Bottom-left green blob */} 
-      <div className={cn(
-        "absolute bottom-0 left-0 rounded-[17px] transition-all duration-300 ease-out bg-[radial-gradient(circle_60px_at_0%_100%,_#3fff75,_#00ff8050,_transparent)]",
-        isNav ? "w-[20px] h-[30%] shadow-[-1px_4px_20px_#00ff2d20] group-hover:w-[35px]" : "w-[70px] h-[50%] shadow-[-2px_9px_40px_#00ff2d40] group-hover:w-[120px] group-hover:shadow-[-4px_1px_45px_#00ff2d60]"
-      )} /> 
- 
       {/* Inner content */} 
       <div className={cn(
         "relative group-hover:scale-105 text-white bg-[radial-gradient(circle_80px_at_80%_-50%,_#777777,_#0f1111)] z-10 transition-all duration-300 flex items-center gap-3",

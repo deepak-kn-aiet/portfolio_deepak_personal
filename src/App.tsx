@@ -31,7 +31,6 @@ const SKILLS = [
   { name: 'C', icon: '⚙️', level: 60 },
   { name: 'HTML', icon: '🌐', level: 70 },
   { name: 'CSS', icon: '🎨', level: 65 },
-  { name: 'React.js', icon: '⚛️', level: 85 },
   { name: 'MongoDB', icon: '🍃', level: 80 },
   { name: 'TensorFlow', icon: '🧠', level: 78 },
   { name: 'YOLO', icon: '👁️', level: 76 },
@@ -197,26 +196,20 @@ function App() {
                   Karnataka, India
                 </p>
                 <div className={cn("hero-cta reveal", isLoaded && "visible")}>
-                  <MagneticButton>
-                    <RealismButton 
-                      text="View Projects" 
-                      onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                    />
-                  </MagneticButton>
-                  <MagneticButton>
-                    <RealismButton 
-                      text="Get In Touch" 
-                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                    />
-                  </MagneticButton>
-                  <MagneticButton>
-                    <RealismButton 
-                      text="Resume" 
-                      onClick={() => window.open('/resume.html', '_blank')}
-                    >
-                      <Download className="h-4 w-4" />
-                    </RealismButton>
-                  </MagneticButton>
+                  <RealismButton 
+                    text="View Projects" 
+                    onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                  />
+                  <RealismButton 
+                    text="Get In Touch" 
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  />
+                  <RealismButton 
+                    text="Resume" 
+                    onClick={() => window.open('/resume.html', '_blank')}
+                  >
+                    <Download className="h-4 w-4" />
+                  </RealismButton>
                 </div>
                 <div className={cn("hero-social reveal", isLoaded && "visible")}>
                   <a href="https://github.com/deepak-kn-aiet" target="_blank" rel="noopener noreferrer" className="social-link">
