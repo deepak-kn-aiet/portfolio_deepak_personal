@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepak-kn-aiet/portfolio_deepak_personal.git"
+    "url": "git+https://github.com/deepak-kn-aiet.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/deepak-kn-aiet/portfolio_deepak_personal/issues"
+    "url": "https://github.com/deepak-kn-aiet/issues"
   },
-  "homepage": "https://github.com/deepak-kn-aiet/portfolio_deepak_personal#readme",
+  "homepage": "https://github.com/deepak-kn-aiet#readme",
   "dependencies": {
     "clsx": "^2.1.1",
     "framer-motion": "^12.40.0",

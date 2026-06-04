@@ -1,0 +1,479 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepak K N - AI/ML Resume</title> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style> 
+        /* CSS Reset & Page Setup */ 
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        } 
+        
+        :root {
+            --primary: #1a365d;
+            --secondary: #2b6cb0;
+            --text-main: #2d3748;
+            --text-light: #4a5568;
+            --border: #e2e8f0;
+            --accent: #ebf8ff;
+        }
+
+        @page { 
+            size: A4; 
+            margin: 0; 
+        } 
+
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            font-size: 10pt; 
+            line-height: 1.5; 
+            color: var(--text-main); 
+            background-color: #f7fafc; 
+            padding: 40px 0;
+            -webkit-print-color-adjust: exact; 
+        } 
+
+        /* Container for web view */
+        .resume-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            padding: 15mm 15mm;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        /* Toolbar for web view */
+        .toolbar {
+            max-width: 850px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary);
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: var(--text-light);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+        }
+
+        /* Layout Structure */ 
+        .resume-grid { 
+            display: grid;
+            grid-template-columns: 1.8fr 1.2fr;
+            gap: 40px;
+        } 
+
+        /* Header Styles */ 
+        .header { 
+            margin-bottom: 30px; 
+            border-bottom: 3px solid var(--secondary); 
+            padding-bottom: 20px; 
+        } 
+ 
+        .name { 
+            font-size: 28pt; 
+            font-weight: 800; 
+            color: var(--primary); 
+            text-transform: uppercase; 
+            letter-spacing: -0.5px; 
+            margin-bottom: 4px; 
+        } 
+ 
+        .title { 
+            font-size: 12pt; 
+            font-weight: 600; 
+            color: var(--secondary); 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            margin-bottom: 15px; 
+        } 
+ 
+        /* Contact Details */ 
+        .contact-bar { 
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 9pt; 
+            color: var(--text-light); 
+        } 
+        
+        .contact-item { 
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        } 
+ 
+        .contact-item a { 
+            color: var(--text-light); 
+            text-decoration: none; 
+            border-bottom: 1px solid transparent;
+        } 
+
+        .contact-item a:hover {
+            color: var(--secondary);
+            border-bottom-color: var(--secondary);
+        }
+ 
+        /* Section Typography */ 
+        .section-title { 
+            font-size: 12pt; 
+            font-weight: 700; 
+            color: var(--primary); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            border-bottom: 2px solid var(--border); 
+            padding-bottom: 6px; 
+            margin-top: 25px; 
+            margin-bottom: 15px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        } 
+        
+        .section-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: var(--border);
+            display: none; /* Already using border-bottom */
+        }
+
+        /* Content Blocks */ 
+        .item {
+            margin-bottom: 20px;
+        }
+
+        .item-header { 
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px; 
+        } 
+ 
+        .item-title { 
+            font-size: 11pt; 
+            font-weight: 700; 
+            color: var(--text-main); 
+        } 
+ 
+        .item-subtitle { 
+            font-size: 10pt; 
+            font-weight: 600; 
+            color: var(--secondary); 
+        } 
+ 
+        .item-meta { 
+            font-size: 9pt; 
+            color: #718096; 
+            font-weight: 500;
+            margin-bottom: 8px; 
+        } 
+
+        .date {
+            font-size: 9pt;
+            color: #718096;
+            font-weight: 600;
+        }
+ 
+        /* Lists and bullets */ 
+        ul { 
+            margin-left: 18px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        li { 
+            margin-bottom: 6px; 
+            color: var(--text-light);
+            position: relative;
+        } 
+ 
+        /* Skills specific styling */ 
+        .skills-group { 
+            margin-bottom: 12px; 
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 3px solid var(--secondary);
+        } 
+ 
+        .skills-label { 
+            font-weight: 700; 
+            color: var(--primary); 
+            font-size: 9pt; 
+            margin-bottom: 4px; 
+            text-transform: uppercase;
+        } 
+ 
+        .skills-body { 
+            font-size: 9.5pt; 
+            color: var(--text-main); 
+            line-height: 1.4; 
+        } 
+ 
+        /* Objective block */ 
+        .objective-text { 
+            color: var(--text-light); 
+            font-size: 10pt; 
+            line-height: 1.6;
+        } 
+
+        .highlight-box {
+            background-color: var(--accent);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                max-width: 100%;
+                margin: 0;
+                padding: 10mm 10mm;
+            }
+            .toolbar {
+                display: none;
+            }
+            .resume-grid {
+                gap: 30px;
+            }
+        }
+
+        /* Icon styling (simplified) */
+        .icon {
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style> 
+</head> 
+<body> 
+    <div class="toolbar">
+        <a href="/" class="btn btn-outline">Back to Portfolio</a>
+        <button onclick="downloadResume()" class="btn btn-primary" id="downloadBtn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span id="btnText">Download Resume</span>
+        </button>
+    </div>
+
+    <script>
+        function downloadResume() {
+            const element = document.querySelector('.resume-container');
+            const btnText = document.getElementById('btnText');
+            const downloadBtn = document.getElementById('downloadBtn');
+            
+            // UI feedback
+            btnText.innerText = 'Generating...';
+            downloadBtn.style.opacity = '0.7';
+            downloadBtn.disabled = true;
+
+            const opt = {
+                margin: 0,
+                filename: 'Deepak_K_N_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Run html2pdf
+            html2pdf().set(opt).from(element).save().then(() => {
+                btnText.innerText = 'Download Resume';
+                downloadBtn.style.opacity = '1';
+                downloadBtn.disabled = false;
+            }).catch(err => {
+                console.error('PDF Generation Error:', err);
+                btnText.innerText = 'Download Failed';
+                setTimeout(() => {
+                    btnText.innerText = 'Download Resume';
+                    downloadBtn.style.opacity = '1';
+                    downloadBtn.disabled = false;
+                }, 2000);
+            });
+        }
+    </script>
+
+    <div class="resume-container">
+        <!-- Main Header --> 
+        <div class="header"> 
+            <div class="name">Deepak K N</div> 
+            <div class="title">AI & Machine Learning Undergraduate</div> 
+            
+            <div class="contact-bar"> 
+                <span class="contact-item">📍 Bengaluru, Karnataka</span> 
+                <span class="contact-item">📞 +91 7411403997</span> 
+                <span class="contact-item">📧 <a href="mailto:kndeepak295@gmail.com">kndeepak295@gmail.com</a></span> 
+                <span class="contact-item">🔗 <a href="https://github.com/deepak-kn-aiet" target="_blank">github.com/deepak-kn-aiet</a></span> 
+                <span class="contact-item">🔗 <a href="https://linkedin.com/in/deepak-kn-709a682a5" target="_blank">linkedin.com/in/deepak-kn-709a682a5</a></span> 
+            </div> 
+        </div> 
+ 
+        <!-- Two-Column Layout --> 
+        <div class="resume-grid"> 
+            <!-- Left Column --> 
+            <div class="main-content"> 
+                
+                <div class="section-title">Career Objective</div> 
+                <div class="highlight-box">
+                    <p class="objective-text"> 
+                        Artificial Intelligence and Machine Learning undergraduate with a CGPA of 7.6+ and a strong interest in Computer Vision and emerging technologies. Passionate about building real-world solutions and continuously learning modern AI tools. Seeking an internship opportunity to gain practical industry experience and contribute to innovative AI-driven projects. 
+                    </p> 
+                </div>
+
+                <div class="section-title">Projects</div> 
+                
+                <div class="item">
+                    <div class="item-header"> 
+                        <span class="item-title">Real-Time Traffic Management System</span>
+                        <span class="date">2024</span>
+                    </div> 
+                    <div class="item-meta">Tech Stack: Python, YOLO, OpenCV, NumPy</div> 
+                    <ul> 
+                        <li>Developed a real-time traffic monitoring and vehicle detection system using YOLO architecture.</li> 
+                        <li>Applied computer vision concepts for intelligent traffic analysis and flow monitoring.</li> 
+                        <li>Explored AI-based approaches for smart urban transportation systems.</li> 
+                        <li>Collaborated with team members for optimized development and project delivery.</li> 
+                    </ul> 
+                </div>
+
+                <div class="section-title">Education</div> 
+                
+                <div class="item">
+                    <div class="item-header"> 
+                        <span class="item-title">Bachelor of Engineering – AI & ML</span>
+                        <span class="date">2024 — 2028</span>
+                    </div> 
+                    <div class="item-subtitle">Akash Institute of Engineering and Technology, Bengaluru</div> 
+                    <div class="item-meta">CGPA: 7.6+ (First 3 Semesters)</div> 
+                </div> 
+ 
+                <div class="item">
+                    <div class="item-header"> 
+                        <span class="item-title">Pre-University Course (PUC)</span>
+                        <span class="date">2022 — 2024</span>
+                    </div> 
+                    <div class="item-subtitle">Shanthi Nikethan PU College, Chikkaballapur</div> 
+                    <div class="item-meta">Percentage: 86.7%</div> 
+                </div> 
+ 
+                <div class="item">
+                    <div class="item-header"> 
+                        <span class="item-title">Secondary School (SSLC)</span>
+                        <span class="date">2022</span>
+                    </div> 
+                    <div class="item-subtitle">Ganga International School, Bengaluru</div> 
+                    <div class="item-meta">Percentage: 93.7%</div> 
+                </div> 
+
+                <div class="section-title">Activities & Sports</div> 
+                <div class="item">
+                    <div class="item-title">VTU Cricket Tournaments</div>
+                    <p style="font-size: 9.5pt; color: var(--text-light); margin-top: 5px;">Represented AIET in university-level cricket tournaments, demonstrating leadership and strong teamwork.</p>
+                </div>
+            </div> 
+ 
+            <!-- Right Column --> 
+            <div class="sidebar"> 
+                
+                <div class="section-title">Technical Skills</div> 
+                
+                <div class="skills-group"> 
+                    <div class="skills-label">Languages</div> 
+                    <div class="skills-body">Python, C</div> 
+                </div> 
+ 
+                <div class="skills-group"> 
+                    <div class="skills-label">AI & ML</div> 
+                    <div class="skills-body">YOLO, Hugging Face, Llama Models, NumPy, OpenCV, Prompt Engineering</div> 
+                </div> 
+ 
+                <div class="skills-group"> 
+                    <div class="skills-label">Databases</div> 
+                    <div class="skills-body">MongoDB, Supabase</div> 
+                </div> 
+ 
+                <div class="skills-group"> 
+                    <div class="skills-label">Tools</div> 
+                    <div class="skills-body">Git, GitHub, VS Code, Cursor, Trae, Vercel, Jupyter</div> 
+                </div> 
+ 
+                <div class="section-title">Leadership</div> 
+                
+                <div class="item"> 
+                    <div class="item-title">Tech Content Creator</div>
+                    <div class="item-subtitle">@cloudpulse.coder</div> 
+                    <p style="font-size: 8.5pt; color: var(--text-light); margin-top: 4px;"> 
+                        Guiding students on GitHub, internships, and project development roadmaps.
+                    </p> 
+                </div>
+ 
+                <div class="item"> 
+                    <div class="item-title">Hackathon Enthusiast</div> 
+                    <div class="item-meta">5-Time Participant</div> 
+                    <p style="font-size: 8.5pt; color: var(--text-light);"> 
+                        Collaborated in competitive environments to build innovative tech solutions.
+                    </p> 
+                </div> 
+ 
+                <div class="section-title">Certifications</div> 
+                <ul style="font-size: 8.5pt; color: var(--text-light); margin-left: 15px;"> 
+                    <li>IBM SkillsBuild – Customer Engagement</li> 
+                    <li>AI Certification (Pursuing)</li> 
+                </ul> 
+ 
+                <div class="section-title">Languages</div> 
+                <p style="font-size: 9pt; color: var(--text-main); font-weight: 500;"> 
+                    English, Kannada, Hindi, Telugu 
+                </p> 
+ 
+                <div class="section-title">Strengths</div> 
+                <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+                    <span style="font-size: 8pt; background: #edf2f7; padding: 3px 8px; border-radius: 4px;">Teamwork</span>
+                    <span style="font-size: 8pt; background: #edf2f7; padding: 3px 8px; border-radius: 4px;">Adaptability</span>
+                    <span style="font-size: 8pt; background: #edf2f7; padding: 3px 8px; border-radius: 4px;">Communication</span>
+                    <span style="font-size: 8pt; background: #edf2f7; padding: 3px 8px; border-radius: 4px;">Leadership</span>
+                </div>
+            </div> 
+        </div> 
+    </div> 
+</body> 
+</html> 

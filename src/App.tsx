@@ -20,10 +20,10 @@ import {
 } from 'lucide-react';
 
 const TYPING_PHRASES = [
-  'AIML Student | VTU',
+  'VTU 2nd Year Student',
   'Building AI-Powered Solutions',
   'Computer Vision & Deep Learning',
-  'React • Node.js • Python • YOLO',
+  'React • Python • YOLO • AIET',
 ];
 
 const SKILLS = [
@@ -31,13 +31,10 @@ const SKILLS = [
   { name: 'C', icon: '⚙️', level: 60 },
   { name: 'HTML', icon: '🌐', level: 70 },
   { name: 'CSS', icon: '🎨', level: 65 },
-  { name: 'JavaScript', icon: '⚡', level: 88 },
   { name: 'React.js', icon: '⚛️', level: 85 },
-  { name: 'Node.js', icon: '🟢', level: 82 },
   { name: 'MongoDB', icon: '🍃', level: 80 },
   { name: 'TensorFlow', icon: '🧠', level: 78 },
   { name: 'YOLO', icon: '👁️', level: 76 },
-  { name: 'Scikit-learn', icon: '📊', level: 80 },
   { name: 'NumPy', icon: '🔢', level: 85 },
   { name: 'Pandas', icon: '🐼', level: 84 },
   { name: 'Git', icon: '📦', level: 88 },
@@ -99,7 +96,7 @@ function App() {
       setIsScrolled(window.scrollY > 50);
 
       // Update active section
-      const sections = ['hero', 'about', 'skills', 'projects', 'certifications', 'activities', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'projects', 'activities', 'contact'];
       const scrollPos = window.scrollY + 100;
 
       for (const id of sections) {
@@ -162,7 +159,7 @@ function App() {
             </a>
 
             <ul className={cn("nav-links")}>
-              {['about', 'skills', 'projects', 'certifications', 'activities', 'contact'].map((item) => (
+              {['about', 'skills', 'projects', 'activities', 'contact'].map((item) => (
                 <li key={item}>
                   <HoverButton 
                     className={cn(
@@ -215,17 +212,17 @@ function App() {
                   <MagneticButton>
                     <RealismButton 
                       text="Resume" 
-                      onClick={() => window.open('assets/resume.pdf', '_blank')}
+                      onClick={() => window.open('/resume.html', '_blank')}
                     >
                       <Download className="h-4 w-4" />
                     </RealismButton>
                   </MagneticButton>
                 </div>
                 <div className={cn("hero-social reveal", isLoaded && "visible")}>
-                  <a href="https://github.com/deepak-kn-aiet?utm_source=chatgpt.com" target="_blank" rel="noopener noreferrer" className="social-link">
+                  <a href="https://github.com/deepak-kn-aiet" target="_blank" rel="noopener noreferrer" className="social-link">
                     <Github />
                   </a>
-                  <a href="https://www.linkedin.com/in/deepak-kn-709a682a5?skipRedirect=true" target="_blank" rel="noopener noreferrer" className="social-link">
+                  <a href="https://www.linkedin.com/in/deepak-kn-709a682a5?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" className="social-link">
                     <Linkedin />
                   </a>
                 </div>
@@ -284,7 +281,7 @@ function App() {
                       {[
                         { num: '5+', label: 'Hackathons' },
                         { num: '2', label: 'AI Projects' },
-                        { num: '18+', label: 'Tech Skills' }
+                        { num: '10+', label: 'Tech Skills' }
                       ].map((stat, i) => (
                         <div key={i} className="stat">
                           <span className="stat-num">{stat.num}</span>
@@ -295,9 +292,9 @@ function App() {
                   </div>
                 </div>
                 <div className="about-content reveal">
-                  <h3>AIML Student | VTU</h3>
+                  <h3>VTU 2nd Year Student</h3>
                   <p>
-                    Passionate AIML student with experience in AI-powered applications, computer vision,
+                    Passionate student with experience in AI-powered applications, computer vision,
                     full-stack development, and real-time systems. Interested in building impactful AI
                     solutions using React, Node.js, Python, YOLO, TensorFlow, and modern AI tools.
                   </p>
@@ -306,7 +303,7 @@ function App() {
                     that solve real-world problems — from smart traffic systems to agricultural AI platforms.
                   </p>
                   <div className="about-highlights">
-                    {['Computer Vision', 'Full Stack', 'Real-time Systems', 'LLM Integration'].map(tag => (
+                    {['Computer Vision', 'Full Stack', 'Real-time Systems'].map(tag => (
                       <span key={tag} className="highlight-tag">{tag}</span>
                     ))}
                   </div>
@@ -365,7 +362,6 @@ function App() {
                   </div>
                   <div className="project-links">
                     <a href="#" className="project-link"><ExternalLink /></a>
-                    <a href="#" className="project-link"><Github /></a>
                   </div>
                 </article>
 
@@ -389,43 +385,17 @@ function App() {
                   </div>
                   <div className="project-links">
                     <a href="#" className="project-link"><ExternalLink /></a>
-                    <a href="#" className="project-link"><Github /></a>
                   </div>
                 </article>
               </div>
             </div>
           </section>
 
-          {/* Certifications Section */}
-          <section id="certifications" className="section section-alt">
-            <div className="container">
-              <div className="section-header reveal">
-                <span className="section-tag">04 — Certifications</span>
-                <h2 className="section-title">Certifications & <span className="gradient-text">Learning</span></h2>
-              </div>
-              <div className="certs-grid reveal">
-                {[
-                  { icon: '🎓', title: 'Machine Learning Specialization', desc: 'Foundational ML algorithms, model training, and evaluation techniques.', issuer: 'Online Learning Platform' },
-                  { icon: '🐍', title: 'Python for Data Science', desc: 'Data analysis, visualization, and scientific computing with Python.', issuer: 'Coursera / Similar' },
-                  { icon: '🧠', title: 'Deep Learning & Computer Vision', desc: 'Neural networks, CNNs, and object detection with modern frameworks.', issuer: 'Self-paced / University' },
-                  { icon: '⚛️', title: 'Full Stack Web Development', desc: 'React, Node.js, REST APIs, and database integration.', issuer: 'Online Bootcamp' }
-                ].map((cert, i) => (
-                  <div key={i} className="cert-card glass reveal">
-                    <div className="cert-icon">{cert.icon}</div>
-                    <h3>{cert.title}</h3>
-                    <p>{cert.desc}</p>
-                    <span className="cert-issuer">{cert.issuer}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
           {/* Hackathons & Activities */}
-          <section id="activities" className="section">
+          <section id="activities" className="section section-alt">
             <div className="container">
               <div className="section-header reveal">
-                <span className="section-tag">05 — Activities</span>
+                <span className="section-tag">04 — Activities</span>
                 <h2 className="section-title">Hackathons & <span className="gradient-text">Activities</span></h2>
               </div>
               <div className="activities-grid">
@@ -447,10 +417,10 @@ function App() {
           </section>
 
           {/* Contact Section */}
-          <section id="contact" className="section section-alt">
+          <section id="contact" className="section">
             <div className="container">
               <div className="section-header reveal">
-                <span className="section-tag">06 — Contact</span>
+                <span className="section-tag">05 — Contact</span>
                 <h2 className="section-title">Let's <span className="gradient-text">Connect</span></h2>
                 <p className="section-subtitle">Open to internships, collaborations, and AI projects</p>
               </div>
@@ -473,7 +443,7 @@ function App() {
                     <MagneticButton>
                       <RealismButton 
                         text="LinkedIn" 
-                        onClick={() => window.open('https://www.linkedin.com/in/deepak-kn-709a682a5?skipRedirect=true', '_blank')}
+                        onClick={() => window.open('https://www.linkedin.com/in/deepak-kn-709a682a5?utm_source=share_via&utm_content=profile&utm_medium=member_ios', '_blank')}
                       >
                         <Linkedin className="h-4 w-4" />
                       </RealismButton>
@@ -482,7 +452,7 @@ function App() {
                     <MagneticButton>
                       <RealismButton 
                         text="GitHub" 
-                        onClick={() => window.open('https://github.com/deepak-kn-aiet?utm_source=chatgpt.com', '_blank')}
+                        onClick={() => window.open('https://github.com/deepak-kn-aiet', '_blank')}
                       >
                         <Github className="h-4 w-4" />
                       </RealismButton>
@@ -491,7 +461,7 @@ function App() {
                     <MagneticButton>
                       <RealismButton 
                         text="Instagram" 
-                        onClick={() => window.open('https://www.instagram.com/deepak_k___n', '_blank')}
+                        onClick={() => window.open('https://www.instagram.com/cloudpulse.coder?utm_source=qr', '_blank')}
                       >
                         <Instagram className="h-4 w-4" />
                       </RealismButton>

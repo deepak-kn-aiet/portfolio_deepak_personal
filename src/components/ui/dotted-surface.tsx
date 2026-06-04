@@ -18,10 +18,6 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 	 useEffect(() => { 
 	 	 if (!containerRef.current) return; 
 
-// #region debug-point A:init
-fetch("http://127.0.0.1:7777/event",{method:"POST",body:JSON.stringify({sessionId:"background-wave-static",runId:"post-6",hypothesisId:"A",location:"dotted-surface.tsx:25",msg:"[DEBUG] Initializing scene (NO THEME DEP)",data:{},ts:Date.now()})}).catch(()=>{});
-// #endregion
-
 	 	 const SEPARATION = 100; 
 	 	 const AMOUNTX = 60; 
 	 	 const AMOUNTY = 60; 
@@ -87,24 +83,11 @@ fetch("http://127.0.0.1:7777/event",{method:"POST",body:JSON.stringify({sessionI
 
 	 	 const clock = new THREE.Clock();
 	 	 let animationId: number = 0; 
-	 	 let frameCounter = 0;
 
 	 	 // Animation function 
 	 	 const animate = () => { 
-			try {
 	 	 	 animationId = requestAnimationFrame(animate); 
-			 frameCounter++;
 			 const elapsedTime = clock.getElapsedTime();
-
-if (frameCounter === 1) {
-  fetch("http://127.0.0.1:7777/event",{method:"POST",body:JSON.stringify({sessionId:"background-wave-static",runId:"post-6",hypothesisId:"B",location:"dotted-surface.tsx:95",msg:"[DEBUG] First frame firing",data:{},ts:Date.now()})}).catch(()=>{});
-}
-
-// #region debug-point B:loop
-if (frameCounter % 60 === 0) {
-  fetch("http://127.0.0.1:7777/event",{method:"POST",body:JSON.stringify({sessionId:"background-wave-static",runId:"post-6",hypothesisId:"B",location:"dotted-surface.tsx:95",msg:"[DEBUG] Animation loop firing (FIXED)",data:{elapsedTime,frameCounter},ts:Date.now()})}).catch(()=>{});
-}
-// #endregion
 
 	 	 	 const positionAttribute = geometry.attributes.position; 
 	 	 	 const positionsArray = positionAttribute.array as Float32Array; 
@@ -126,9 +109,6 @@ if (frameCounter % 60 === 0) {
 			 geometry.computeBoundingSphere(); // Ensure culling doesn't hide it
 
 	 	 	 renderer.render(scene, camera); 
-			} catch (e: any) {
-				fetch("http://127.0.0.1:7777/event",{method:"POST",body:JSON.stringify({sessionId:"background-wave-static",runId:"post-3",hypothesisId:"B",location:"dotted-surface.tsx:140",msg:"[DEBUG] Animation crash",data:{error: e.message},ts:Date.now()})}).catch(()=>{});
-			}
 	 	 }; 
 
 	 	 // Handle window resize 
