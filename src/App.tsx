@@ -95,7 +95,7 @@ function App() {
       setIsScrolled(window.scrollY > 50);
 
       // Update active section
-      const sections = ['hero', 'about', 'skills', 'projects', 'activities', 'contact'];
+      const sections = ['hero', 'skills', 'projects', 'activities', 'contact'];
       const scrollPos = window.scrollY + 100;
 
       for (const id of sections) {
@@ -158,7 +158,7 @@ function App() {
             </a>
 
             <ul className={cn("nav-links")}>
-              {['about', 'skills', 'projects', 'activities', 'contact'].map((item) => (
+              {['skills', 'projects', 'activities', 'contact'].map((item) => (
                 <li key={item}>
                   <HoverButton 
                     className={cn(
