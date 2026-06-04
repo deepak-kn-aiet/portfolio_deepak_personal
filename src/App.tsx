@@ -20,10 +20,10 @@ import {
 } from 'lucide-react';
 
 const TYPING_PHRASES = [
-  'VTU 2nd Year Student',
-  'Building AI-Powered Solutions',
-  'Computer Vision & Deep Learning',
-  'React • Python • YOLO • AIET',
+  'VTU 2nd Year | AI & ML',
+  'Building AI Solutions',
+  'Computer Vision & DL',
+  'React • Python • YOLO',
 ];
 
 const SKILLS = [
@@ -285,7 +285,7 @@ function App() {
                   </div>
                 </div>
                 <div className="about-content reveal">
-                  <h3>VTU 2nd Year Student</h3>
+                  <h3>VTU 2nd Year | AI & ML</h3>
                   <p>
                     Passionate student with experience in AI-powered applications, computer vision,
                     full-stack development, and real-time systems. Interested in building impactful AI

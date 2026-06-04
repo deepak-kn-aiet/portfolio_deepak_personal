@@ -15,7 +15,7 @@ const RealismButton = ({ text, className, children, variant = 'default', ...prop
     <button 
       className={cn(
         "group relative p-[1px] border-none cursor-pointer transition-all inline-flex items-center justify-center",
-        isNav ? "rounded-[10px] bg-[radial-gradient(circle_40px_at_80%_-10%,_#ffffff30,_#181b1b)]" : "p-[3px] rounded-[20px] bg-[radial-gradient(circle_120px_at_80%_-10%,_#ffffff,_#181b1b)]",
+        isNav ? "rounded-[10px] bg-[radial-gradient(circle_40px_at_80%_-10%,_#ffffff30,_#181b1b)]" : "p-[2px] rounded-[14px] bg-[radial-gradient(circle_120px_at_80%_-10%,_#ffffff,_#181b1b)]",
         className
       )}
       {...props}
@@ -23,15 +23,15 @@ const RealismButton = ({ text, className, children, variant = 'default', ...prop
       {/* Glow behind button */} 
       <div className={cn(
         "absolute top-0 right-0 rounded-[120px] transition-all duration-300 ease-out -z-10",
-        isNav ? "w-[40%] h-[40%] shadow-[0_0_10px_#ffffff15] group-hover:shadow-[0_0_20px_#ffffff25]" : "w-[65%] h-[60%] shadow-[0_0_20px_#ffffff38] group-hover:shadow-[0_0_40px_#ffffff60]"
+        isNav ? "w-[40%] h-[40%] shadow-[0_0_10px_#ffffff15] group-hover:shadow-[0_0_20px_#ffffff25]" : "w-[65%] h-[60%] shadow-[0_0_20px_#ffffff20] group-hover:shadow-[0_0_40px_#ffffff40]"
       )} /> 
  
       {/* Inner content */} 
       <div className={cn(
-        "relative group-hover:scale-105 text-white bg-[radial-gradient(circle_80px_at_80%_-50%,_#777777,_#0f1111)] z-10 transition-all duration-300 flex items-center gap-3",
-        isNav ? "px-[12px] py-[6px] rounded-[9px]" : "px-[35px] py-[18px] rounded-[18px]"
+        "relative group-hover:scale-105 text-white bg-[radial-gradient(circle_80px_at_80%_-50%,_#777777,_#0f1111)] z-10 transition-all duration-300 flex items-center gap-2",
+        isNav ? "px-[12px] py-[6px] rounded-[9px]" : "px-[24px] py-[12px] rounded-[12px]"
       )}> 
-        {text && <span className={cn("font-bold", isNav ? "text-[0.75rem]" : "text-[1.2rem]")}>{text}</span>}
+        {text && <span className={cn("font-bold", isNav ? "text-[0.75rem]" : "text-[1rem]")}>{text}</span>}
         {children}
  
         {/* Inner glow layer */} 
