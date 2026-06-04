@@ -252,6 +252,7 @@ function App() {
               <div className="section-header reveal">
                 <span className="section-tag">01 — About</span>
                 <h2 className="section-title">About <span className="gradient-text">Me</span></h2>
+                <div className="section-divider"></div>
               </div>
               <div className="about-grid">
                 <div className="about-card glass reveal">
@@ -311,7 +312,7 @@ function App() {
               <div className="section-header reveal">
                 <span className="section-tag">02 — Skills</span>
                 <h2 className="section-title">Technical <span className="gradient-text">Skills</span></h2>
-                <p className="section-subtitle">Technologies I work with daily</p>
+                <div className="section-divider"></div>
               </div>
               <div className="skills-grid">
                 {SKILLS.map((skill, i) => (
@@ -333,6 +334,7 @@ function App() {
               <div className="section-header reveal">
                 <span className="section-tag">03 — Projects</span>
                 <h2 className="section-title">Featured <span className="gradient-text">Projects</span></h2>
+                <div className="section-divider"></div>
               </div>
               <div className="projects-grid">
                 <article className="project-card glass reveal">
@@ -390,6 +392,7 @@ function App() {
               <div className="section-header reveal">
                 <span className="section-tag">04 — Activities</span>
                 <h2 className="section-title">Hackathons & <span className="gradient-text">Activities</span></h2>
+                <div className="section-divider"></div>
               </div>
               <div className="activities-grid">
                 {[
@@ -416,6 +419,7 @@ function App() {
                 <span className="section-tag">05 — Contact</span>
                 <h2 className="section-title">Let's <span className="gradient-text">Connect</span></h2>
                 <p className="section-subtitle">Open to internships, collaborations, and AI projects</p>
+                <div className="section-divider"></div>
               </div>
               <div className="contact-wrapper reveal">
                 <div className="contact-card glass">
