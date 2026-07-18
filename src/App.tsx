@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 
 const TYPING_PHRASES = [
-  'VTU 2nd Year | AI & ML',
+  'VTU 3rd Year | AI & ML',
   'Building AI Solutions',
   'Computer Vision & DL',
   'React • Python • YOLO',
@@ -40,7 +40,7 @@ const SKILLS = [
   { name: 'GitHub', icon: '🐙', level: 90 },
   { name: 'Ollama', icon: '🦙', level: 72 },
   { name: 'Hugging Face', icon: '🤗', level: 75 },
-  { name: 'n8n', icon: '🔗', level: 70 },
+  { name: 'Google Antigravity', icon: '🚀', level: 100 },
 ];
 
 function App() {
@@ -218,6 +218,9 @@ function App() {
                   <a href="https://www.linkedin.com/in/deepak-kn-709a682a5?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" className="social-link">
                     <Linkedin />
                   </a>
+                  <a href="https://www.instagram.com/deepak.builds_?igsh=MWdvZmNienZtb21nbg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="social-link">
+                    <Instagram />
+                  </a>
                 </div>
               </div>
 
@@ -286,7 +289,7 @@ function App() {
                   </div>
                 </div>
                 <div className="about-content reveal">
-                  <h3>VTU 2nd Year | AI & ML</h3>
+                  <h3>VTU 3rd Year | AI & ML</h3>
                   <p>
                     Passionate student with experience in AI-powered applications, computer vision,
                     full-stack development, and real-time systems. Interested in building impactful AI
@@ -458,7 +461,7 @@ function App() {
                     <MagneticButton>
                       <RealismButton 
                         text="Instagram" 
-                        onClick={() => window.open('https://www.instagram.com/cloudpulse.coder?utm_source=qr', '_blank')}
+                        onClick={() => window.open('https://www.instagram.com/deepak.builds_?igsh=MWdvZmNienZtb21nbg%3D%3D&utm_source=qr', '_blank')}
                       >
                         <Instagram className="h-4 w-4" />
                       </RealismButton>
